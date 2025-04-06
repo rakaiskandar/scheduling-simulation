@@ -1,103 +1,134 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ArrowRight, Cpu, List, ListOrdered, LucideTimer, Split } from "lucide-react"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex min-h-screen flex-col">
+      <header className="border-b py-4 px-4">
+        <div className="container flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Cpu className="h-6 w-6 text-purple-600" />
+            <span className="text-xl font-bold">CPU Scheduler</span>
+          </div>
+          <nav className="flex gap-6">
+            <Link href="/" className="font-medium hover:text-purple-600">
+              Home
+            </Link>
+            <Link href="/simulate" className="font-medium hover:text-purple-600">
+              Simulate
+            </Link>
+            <Link href="#" className="font-medium hover:text-purple-600">
+              About
+            </Link>
+          </nav>
         </div>
+      </header>
+      <main className="flex-1">
+        <section className="bg-gradient-to-b from-white flex items-center justify-center to-purple-50 py-20">
+          <div className="container">
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="inline-block rounded-lg bg-purple-100 px-3 py-1 text-sm text-purple-800">
+                CPU Scheduling Visualizer
+              </div>
+              <h1 className="mt-6 text-5xl font-bold leading-tight tracking-tight text-purple-900 md:text-6xl">
+                CPU Scheduling{" "}
+                <span className="relative whitespace-nowrap">
+                  <span className="relative font-handwriting text-purple-600">made simple</span>
+                </span>
+              </h1>
+              <p className="mt-6 text-xl text-gray-600">
+                Ideate, Visualize, Learn. Understand CPU scheduling algorithms through interactive simulations.
+              </p>
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/simulate"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-purple-600 px-6 py-3 font-medium text-white transition-colors hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                >
+                  Start Simulation
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 flex items-center justify-center">
+          <div className="container">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Understand CPU Scheduling Algorithms
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Visualize how different CPU scheduling algorithms work and compare their performance.
+              </p>
+            </div>
+
+            <div className="mt-16 grid gap-8 md:grid-cols-3">
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                  <ListOrdered />
+                </div>
+                <h3 className="mb-2 text-xl font-bold">First Come First Served</h3>
+                <p className="text-gray-600">
+                  The simplest scheduling algorithm that executes processes in the order they arrive.
+                </p>
+              </div>
+
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                  <LucideTimer />
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Shortest Job First</h3>
+                <p className="text-gray-600">
+                  Prioritizes processes with the shortest execution time to minimize average waiting time.
+                </p>
+              </div>
+
+              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                  <Split />
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Round Robin</h3>
+                <p className="text-gray-600">
+                  Allocates a fixed time slice to each process in a circular queue for fair CPU sharing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-purple-50 py-20 flex items-center justify-center">
+          <div className="container">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Ready to visualize CPU scheduling?
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Jump into our interactive simulator and see how different algorithms handle process scheduling.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/simulate"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-purple-600 px-6 py-3 font-medium text-white transition-colors hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                >
+                  Start Simulation
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+      <Footer />
     </div>
-  );
+  )
 }
+
