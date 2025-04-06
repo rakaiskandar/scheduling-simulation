@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Cpu, List, ListOrdered, LucideTimer, Split } from "lucide-react"
+import { ArrowRight, Cpu, ListOrdered, LucideTimer, Split } from "lucide-react"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
