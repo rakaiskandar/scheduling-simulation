@@ -19,7 +19,7 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
   })
 
   return (
-    <div className="pl-4 h-16 overflow-x-auto">
+    <div className="pl-4 h-20 overflow-x-auto">
       <div className="min-w-max">
         {/* Gantt bars */}
         <div className="flex items-center">
@@ -29,6 +29,7 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
               className={`flex flex-col items-center justify-center border ${entry.color} p-2 text-center`}
               style={{
                 width: `${Math.max((entry.endTime - entry.startTime) * 40, 60)}px`,
+                height: '60px'
               }}
             >
               <span className="font-medium">{entry.name}</span>

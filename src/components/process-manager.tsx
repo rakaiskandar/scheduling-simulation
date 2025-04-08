@@ -18,14 +18,14 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
   // Random color generator
   const getRandomColor = () => {
     const colors = [
-      "bg-red-200 border-red-400",
-      "bg-blue-200 border-blue-400",
-      "bg-green-200 border-green-400",
-      "bg-yellow-200 border-yellow-400",
-      "bg-purple-200 border-purple-400",
-      "bg-pink-200 border-pink-400",
-      "bg-indigo-200 border-indigo-400",
-      "bg-teal-200 border-teal-400",
+      "bg-red-200 border-red-400 dark:bg-red-900/30 dark:border-red-700",
+      "bg-blue-200 border-blue-400 dark:bg-blue-900/30 dark:border-blue-700",
+      "bg-green-200 border-green-400 dark:bg-green-900/30 dark:border-green-700",
+      "bg-yellow-200 border-yellow-400 dark:bg-yellow-900/30 dark:border-yellow-700",
+      "bg-purple-200 border-purple-400 dark:bg-purple-900/30 dark:border-purple-700",
+      "bg-pink-200 border-pink-400 dark:bg-pink-900/30 dark:border-pink-700",
+      "bg-indigo-200 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-700",
+      "bg-teal-200 border-teal-400 dark:bg-teal-900/30 dark:border-teal-700",
     ]
     return colors[Math.floor(Math.random() * colors.length)]
   }
@@ -77,12 +77,12 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
 
       <div className="mt-4 space-y-4">
         {processes.length === 0 ? (
-          <div className="rounded-md border border-dashed border-gray-300 p-4 text-center text-sm text-gray-500">
+          <div className="rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
             No processes added. Click &quot;Add Process&quot; to start.
           </div>
         ) : (
           processes.map((process) => (
-            <div key={process.id} className="rounded-md border border-gray-200 p-4">
+            <div key={process.id} className="rounded-md border border-gray-200 dark:border-gray-800 p-4">
               <div className="mb-2 flex items-center justify-between">
                 <span className="font-medium">{process.name}</span>
                 <Button size="sm" variant="ghost" onClick={() => removeProcess(process.id)}>
@@ -124,4 +124,3 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
     </div>
   )
 }
-

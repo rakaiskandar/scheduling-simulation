@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { ArrowLeft, Play, RefreshCw } from "lucide-react"
+import { Play, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProcessManager } from "@/components/process-manager"
@@ -10,8 +9,9 @@ import { GanttChart } from "@/components/gantt-chart"
 import { MetricsDisplay } from "@/components/metrics-display"
 import { ProcessTimeline } from "@/components/process-timeline"
 import { AlgorithmSelector } from "@/components/algorithm-selector"
+import { SimulationHeader } from "@/components/simulation-header"
 import { runSimulation } from "@/lib/simulation"
-import { Process, GanttEntry, SimulationMetrics } from "@/types/simulation"
+import type { Process, GanttEntry, SimulationMetrics } from "@/types/simulation"
 import { Footer } from "@/components/footer"
 
 export default function SimulatePage() {
@@ -56,24 +56,13 @@ export default function SimulatePage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="border-b py-4 flex items-center justify-center">
-        <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <ArrowLeft className="h-5 w-5" />
-              <span className="font-medium">Back to Home</span>
-            </Link>
-          </div>
-          <h1 className="text-xl font-bold">CPU Scheduler Simulator</h1>
-          <div className="w-32"></div>
-        </div>
-      </header>
+      <SimulationHeader />
 
-      <main className="flex-1 py-8">
+      <main className="flex items-center justify-center py-8">
         <div className="container">
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-1">
-              <div className="rounded-lg border bg-white p-6 shadow-sm">
+              <div className="rounded-lg border bg-card p-6 shadow-sm">
                 <h2 className="mb-4 text-xl font-bold">Configuration</h2>
 
                 <AlgorithmSelector
@@ -99,7 +88,7 @@ export default function SimulatePage() {
             </div>
 
             <div className="lg:col-span-2">
-              <div className="rounded-lg border bg-white p-6 shadow-sm">
+              <div className="rounded-lg border bg-card p-6 shadow-sm">
                 <h2 className="mb-6 text-xl font-bold">Simulation Results</h2>
 
                 <Tabs defaultValue="gantt" className="w-full">
@@ -115,8 +104,8 @@ export default function SimulatePage() {
                         <ProcessTimeline processes={processes} />
                       </div>
                     ) : (
-                      <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 p-8 text-center">
-                        <div className="text-gray-500">
+                      <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
+                        <div className="text-gray-500 dark:text-gray-400">
                           <p className="mb-2 text-lg font-medium">No simulation data yet</p>
                           <p className="text-sm">Add processes and run the simulation to see the Gantt chart</p>
                         </div>
@@ -128,8 +117,8 @@ export default function SimulatePage() {
                     {simulationComplete ? (
                       <MetricsDisplay metrics={metrics} processes={processes} />
                     ) : (
-                      <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 p-8 text-center">
-                        <div className="text-gray-500">
+                      <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
+                        <div className="text-gray-500 dark:text-gray-400">
                           <p className="mb-2 text-lg font-medium">No metrics available</p>
                           <p className="text-sm">Run the simulation to see performance metrics</p>
                         </div>
@@ -147,4 +136,3 @@ export default function SimulatePage() {
     </div>
   )
 }
-
