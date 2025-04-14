@@ -13,6 +13,7 @@ import { SimulationHeader } from "@/components/simulation-header"
 import { runSimulation } from "@/lib/simulation"
 import type { Process, GanttEntry, SimulationMetrics } from "@/types/simulation"
 import { Footer } from "@/components/footer"
+import { SimulationAnimated } from "@/components/simulation-animated"
 
 export default function SimulatePage() {
   const [processes, setProcesses] = useState<Process[]>([])
@@ -95,6 +96,7 @@ export default function SimulatePage() {
                   <TabsList className="mb-4">
                     <TabsTrigger value="gantt">Gantt Chart</TabsTrigger>
                     <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                    <TabsTrigger value="simulation">Simulation</TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="gantt">
@@ -120,6 +122,21 @@ export default function SimulatePage() {
                       <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
                         <div className="text-gray-500 dark:text-gray-400">
                           <p className="mb-2 text-lg font-medium">No metrics available</p>
+                          <p className="text-sm">Run the simulation to see performance metrics</p>
+                        </div>
+                      </div>
+                    )}
+                  </TabsContent>
+
+                  <TabsContent value="simulation">
+                    {simulationComplete ? (
+                      <div>
+                        <SimulationAnimated processes={processes} ganttChart={ganttChart} />
+                      </div>
+                    ) : (
+                      <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
+                        <div className="text-gray-500 dark:text-gray-400">
+                          <p className="mb-2 text-lg font-medium">No simulation available</p>
                           <p className="text-sm">Run the simulation to see performance metrics</p>
                         </div>
                       </div>
