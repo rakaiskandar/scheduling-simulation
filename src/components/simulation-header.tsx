@@ -12,7 +12,7 @@ export function SimulationHeader() {
             <span className="font-medium">Back to Home</span>
           </Link>
         </div>
-        <h1 className="text-xl font-bold">CPU Scheduler Simulator</h1>
+        <h1 className="text-xl font-bold">Simulator</h1>
         <div className="w-32 flex justify-end">
           <ThemeToggle />
         </div>

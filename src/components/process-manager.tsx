@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import type { Process } from "@/types/simulation"
+import { getProcessColor } from "@/lib/process-colors"
 
 interface ProcessManagerProps {
   processes: Process[]
@@ -15,21 +16,6 @@ interface ProcessManagerProps {
 export function ProcessManager({ processes, setProcesses }: ProcessManagerProps) {
   const [nextId, setNextId] = useState(1)
 
-  // Random color generator
-  const getRandomColor = () => {
-    const colors = [
-      "bg-red-200 border-red-400 dark:bg-red-900/30 dark:border-red-700",
-      "bg-blue-200 border-blue-400 dark:bg-blue-900/30 dark:border-blue-700",
-      "bg-green-200 border-green-400 dark:bg-green-900/30 dark:border-green-700",
-      "bg-yellow-200 border-yellow-400 dark:bg-yellow-900/30 dark:border-yellow-700",
-      "bg-purple-200 border-purple-400 dark:bg-purple-900/30 dark:border-purple-700",
-      "bg-pink-200 border-pink-400 dark:bg-pink-900/30 dark:border-pink-700",
-      "bg-indigo-200 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-700",
-      "bg-teal-200 border-teal-400 dark:bg-teal-900/30 dark:border-teal-700",
-    ]
-    return colors[Math.floor(Math.random() * colors.length)]
-  }
-
   // Add a new process
   const addProcess = () => {
     const newProcess: Process = {
@@ -38,7 +24,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
       arrivalTime: 0,
       burstTime: 5,
       remainingTime: 5,
-      color: getRandomColor(),
+      color: getProcessColor(nextId),
     }
     setProcesses([...processes, newProcess])
     setNextId(nextId + 1)
@@ -84,7 +70,10 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
           processes.map((process) => (
             <div key={process.id} className="rounded-md border border-gray-200 dark:border-gray-800 p-4">
               <div className="mb-2 flex items-center justify-between">
-                <span className="font-medium">{process.name}</span>
+                <div className="flex items-center gap-2">
+                  <div className={`h-4 w-4 rounded-full ${process.color.replace("border-", "bg-")}`}></div>
+                  <span className="font-medium">{process.name}</span>
+                </div>
                 <Button size="sm" variant="ghost" onClick={() => removeProcess(process.id)}>
                   <Trash2 className="h-4 w-4 text-red-500" />
                 </Button>

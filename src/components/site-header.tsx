@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className="container flex items-center justify-between">
         <div className="flex items-center justify-center gap-2">
           <Cpu className="h-6 w-6 text-purple-600" />
-          <span className="text-xl font-bold">CPU Scheduler</span>
+          <span className="text-xl font-bold">CPUSch</span>
         </div>
         <nav className="flex items-center gap-6">
           <Link href="/" className="font-medium hover:text-purple-600 transition-all">
