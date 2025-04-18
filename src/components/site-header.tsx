@@ -17,9 +17,6 @@ export function SiteHeader() {
           <Link href="/simulate" className="font-medium hover:text-purple-600 transition-all">
             Simulate
           </Link>
-          <Link href="#about" className="font-medium hover:text-purple-600 transition-all">
-            About
-          </Link>
           <ThemeToggle />
         </nav>
       </div>

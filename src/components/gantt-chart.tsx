@@ -19,7 +19,7 @@ export function GanttChart({ ganttChart }: GanttChartProps) {
   })
 
   return (
-    <div className="pl-4 h-20 overflow-x-auto">
+    <div className="pl-4 h-28 overflow-x-auto">
       <div className="min-w-max">
         {/* Gantt bars */}
         <div className="flex items-center">

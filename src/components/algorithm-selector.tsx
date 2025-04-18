@@ -22,7 +22,8 @@ export function AlgorithmSelector({ algorithm, setAlgorithm, timeQuantum, setTim
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="fcfs">First Come First Served (FCFS)</SelectItem>
-            <SelectItem value="sjf">Shortest Job First (SJF)</SelectItem>
+            <SelectItem value="sjfpre">Shortest Job First (SJF) Preemptive</SelectItem>
+            <SelectItem value="sjfnonpre">Shortest Job First (SJF) Non Preemptive</SelectItem>
             <SelectItem value="rr">Round Robin (RR)</SelectItem>
           </SelectContent>
         </Select>

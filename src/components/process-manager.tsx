@@ -78,7 +78,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
                   <Trash2 className="h-4 w-4 text-red-500" />
                 </Button>
               </div>
-              <div className="grid gap-3">
+              <div className="flex flex-row justify-between gap-3">
                 <div>
                   <Label htmlFor={`arrival-${process.id}`} className="text-xs">
                     Arrival Time

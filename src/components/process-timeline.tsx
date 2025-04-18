@@ -8,7 +8,7 @@ interface ProcessTimelineProps {
 
 export function ProcessTimeline({ processes }: ProcessTimelineProps) {
   return (
-    <div className="mt-8">
+    <div className="mt-8 overflow-x-auto">
       <h3 className="mb-3 font-semibold">Process Timeline</h3>
       <div className="space-y-3">
         {processes.map((process) => {

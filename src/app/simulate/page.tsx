@@ -56,14 +56,14 @@ export default function SimulatePage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col justify-between">
       <SimulationHeader />
 
       <main className="flex items-center justify-center py-8">
         <div className="container">
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-1">
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
+              <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="mb-4 text-xl font-bold">Configuration</h2>
 
                 <AlgorithmSelector
@@ -89,7 +89,7 @@ export default function SimulatePage() {
             </div>
 
             <div className="lg:col-span-2">
-              <div className="rounded-lg border bg-card p-6 shadow-sm">
+              <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="mb-6 text-xl font-bold">Simulation Results</h2>
 
                 <Tabs defaultValue="gantt" className="w-full">

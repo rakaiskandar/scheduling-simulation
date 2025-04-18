@@ -1,10 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { BackgroundGradient } from "@/components/background-gradient"
 
-const inter = Inter({ subsets: ["latin"] })
+const space_grotesk = Space_Grotesk({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "CPU Scheduler Visualizer",
@@ -18,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background antialiased`}>
+      <body className={`${space_grotesk.className} min-h-screen bg-background antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
+          <BackgroundGradient>{children}</BackgroundGradient>
         </ThemeProvider>
       </body>
     </html>

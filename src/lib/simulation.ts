@@ -66,27 +66,25 @@ export function runFCFS(processes: Process[]): SimulationResult {
 }
 
 // SJF Algorithm
-export function runSJF(processes: Process[]): SimulationResult {
+export function runSJFNonPreemptive(processes: Process[]): SimulationResult {
   const processQueue = [...processes].map((p) => ({ ...p }))
   let time = 0
   const gantt: GanttEntry[] = []
   const completedProcesses: Process[] = []
 
   while (processQueue.length > 0) {
-    // Find available processes at current time
     const availableProcesses = processQueue.filter((p) => p.arrivalTime <= time)
 
     if (availableProcesses.length === 0) {
-      // No processes available, jump to next arrival time
       const nextArrival = Math.min(...processQueue.map((p) => p.arrivalTime))
       time = nextArrival
       continue
     }
 
-    // Find shortest job
-    const shortestJob = availableProcesses.reduce((prev, curr) => (prev.burstTime < curr.burstTime ? prev : curr))
+    const shortestJob = availableProcesses.reduce((prev, curr) =>
+      prev.burstTime < curr.burstTime ? prev : curr
+    )
 
-    // Remove from queue
     const index = processQueue.findIndex((p) => p.id === shortestJob.id)
     processQueue.splice(index, 1)
 
@@ -118,6 +116,81 @@ export function runSJF(processes: Process[]): SimulationResult {
     metrics: calculateMetrics(completedProcesses),
   }
 }
+
+export function runSJFPreemptive(processes: Process[]): SimulationResult {
+  const processQueue = [...processes].map(p => ({
+    ...p,
+    remainingTime: p.burstTime,
+  }))
+
+  let time = 0
+  const gantt: GanttEntry[] = []
+  const completedProcesses: Process[] = []
+
+  let currentProcess: Process | null = null
+  let lastProcessId: string | null = null
+
+  while (processQueue.some(p => p.remainingTime > 0)) {
+    const availableProcesses = processQueue.filter(
+      p => p.arrivalTime <= time && p.remainingTime > 0
+    )
+
+    if (availableProcesses.length === 0) {
+      time++
+      continue
+    }
+
+    // Pick process with shortest remaining time
+    const shortestJob = availableProcesses.reduce((prev, curr) =>
+      prev.remainingTime < curr.remainingTime ? prev : curr
+    )
+
+    if (currentProcess?.id !== shortestJob.id) {
+      // Close previous gantt entry
+      if (gantt.length > 0 && gantt[gantt.length - 1].endTime === undefined) {
+        gantt[gantt.length - 1].endTime = time
+      }
+
+      // Start new gantt entry
+      gantt.push({
+        processId: shortestJob.id,
+        name: shortestJob.name,
+        startTime: time,
+        endTime: 0, // temporarily unknown
+        color: shortestJob.color,
+      })
+
+      currentProcess = shortestJob
+    }
+
+    // Execute 1 time unit
+    shortestJob.remainingTime--
+    time++
+
+    // If process finishes
+    if (shortestJob.remainingTime === 0) {
+      const startTime = gantt.find(g => g.processId === shortestJob.id)?.startTime ?? 0
+      const endTime = time
+
+      gantt[gantt.length - 1].endTime = endTime
+
+      completedProcesses.push({
+        ...shortestJob,
+        startTime,
+        finishTime: endTime,
+        remainingTime: 0,
+      })
+    }
+  }
+
+  return {
+    gantt,
+    completedProcesses,
+    totalTime: time,
+    metrics: calculateMetrics(completedProcesses),
+  }
+}
+
 
 // Round Robin Algorithm
 export function runRoundRobin(processes: Process[], timeQuantum: number): SimulationResult {
@@ -205,8 +278,10 @@ export function runSimulation(processes: Process[], algorithm: string, timeQuant
   switch (algorithm) {
     case "fcfs":
       return runFCFS(processes)
-    case "sjf":
-      return runSJF(processes)
+    case "sjfpre":
+      return runSJFPreemptive(processes)
+    case "sjfnonpre":
+      return runSJFNonPreemptive(processes)
     case "rr":
       return runRoundRobin(processes, timeQuantum)
     default:
