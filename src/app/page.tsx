@@ -21,21 +21,21 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">
-                Ideate, Visualize, Learn. Understand CPU scheduling algorithms through interactive simulations.
+              Bingung bedain FCFS, SJF, atau Round Robin? Tenang, sekarang kamu bisa belajar lewat simulasi yang interaktif dan mudah dipahami.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href="/simulate"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-purple-600 px-6 py-3 font-medium text-white transition-colors hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:bg-purple-700 dark:hover:bg-purple-600"
                 >
-                  Start Simulation
+                  Mulai simulasi
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="#about"
                   className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white/80 dark:bg-gray-800/80 dark:border-gray-700 px-6 py-3 font-medium text-gray-700 dark:text-gray-200 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 backdrop-blur-sm"
                 >
-                  Learn More
+                  Pelajari selengkapnya
                 </Link>
               </div>
             </div>
@@ -46,10 +46,10 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                Understand CPU Scheduling Algorithms
+              Belajar Algoritma Penjadwalan CPU Jadi Seru
               </h2>
               <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                Visualize how different CPU scheduling algorithms work and compare their performance.
+              Yuk kenalan sama algoritma-algoritma yang sering banget muncul di mata kuliah Sistem Operasi. Kita bantu kamu lihat gimana mereka kerja & mana yang paling efisien!
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default function Home() {
                 </div>
                 <h3 className="mb-2 text-xl font-bold dark:text-white">First Come First Served</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  The simplest scheduling algorithm that executes processes in the order they arrive.
+                Siapa cepat, dia dapat! Proses dijalankan sesuai urutan kedatangan. Simpel, tapi kadang bisa bikin proses lain lama nunggu.
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
                 </div>
                 <h3 className="mb-2 text-xl font-bold dark:text-white">Shortest Job First</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Prioritizes processes with the shortest execution time to minimize average waiting time.
+                Selesaikan yang pendek dulu. Prioritas diberikan ke proses yang butuh waktu paling singkat. Efisien, tapi bisa nggak adil kalau proses panjang terus diabaikan.
                 </p>
               </div>
 
@@ -80,7 +80,7 @@ export default function Home() {
                 </div>
                 <h3 className="mb-2 text-xl font-bold dark:text-white">Round Robin</h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Allocates a fixed time slice to each process in a circular queue for fair CPU sharing.
+                Giliran, dong! Setiap proses dikasih jatah waktu (time slice). Cocok buat sistem multitasking yang adil dan seimbang.
                 </p>
               </div>
             </div>
@@ -91,17 +91,17 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                Ready to visualize CPU scheduling?
+              Yuk, simulasikan penjadwalan CPU-mu!
               </h2>
               <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                Jump into our interactive simulator and see how different algorithms handle process scheduling.
+              Coba langsung dan lihat gimana setiap algoritma ngatur proses. Belajar sambil lihat animasi? 
               </p>
               <div className="mt-8">
                 <Link
                   href="/simulate"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-purple-600 px-6 py-3 font-medium text-white transition-colors hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:bg-purple-700 dark:hover:bg-purple-600"
                 >
-                  Start Simulation
+                  Mulai simulasi
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

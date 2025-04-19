@@ -12,13 +12,13 @@ export function SiteHeader() {
         </div>
         <nav className="flex items-center gap-6">
           <Link href="/" className="font-medium hover:text-purple-600 transition-all">
-            Home
+            Beranda
           </Link>
           <Link href="/about-us" className="font-medium hover:text-purple-600 transition-all">
-            About Us
+            Tentang kami
           </Link>
           <Link href="/simulate" className="font-medium hover:text-purple-600 transition-all">
-            Simulate
+            Simulasi
           </Link>
           <ThemeToggle />
         </nav>

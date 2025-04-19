@@ -54,17 +54,17 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
   return (
     <div className="mb-6">
       <div className="flex items-center justify-between">
-        <Label>Processes</Label>
+        <Label>Proses</Label>
         <Button size="sm" variant="outline" onClick={addProcess}>
           <Plus className="mr-1 h-4 w-4" />
-          Add Process
+          Tambahkan proses
         </Button>
       </div>
 
       <div className="mt-4 space-y-4">
         {processes.length === 0 ? (
           <div className="rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
-            No processes added. Click &quot;Add Process&quot; to start.
+           Tidak ada proses yang ditambahkan. Klik &quot;tambahkan proses &quot; untuk memulai
           </div>
         ) : (
           processes.map((process) => (
@@ -81,7 +81,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
               <div className="flex flex-row justify-between gap-3">
                 <div>
                   <Label htmlFor={`arrival-${process.id}`} className="text-xs">
-                    Arrival Time
+                    Waktu kedatangan
                   </Label>
                   <Input
                     id={`arrival-${process.id}`}
@@ -93,7 +93,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
                 </div>
                 <div>
                   <Label htmlFor={`burst-${process.id}`} className="text-xs">
-                    Burst Time
+                    Waktu Eksekusi
                   </Label>
                   <Input
                     id={`burst-${process.id}`}

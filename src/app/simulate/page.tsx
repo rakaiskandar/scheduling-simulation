@@ -64,7 +64,7 @@ export default function SimulatePage() {
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-1">
               <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
-                <h2 className="mb-4 text-xl font-bold">Configuration</h2>
+                <h2 className="mb-4 text-xl font-bold">Konfigurasi</h2>
 
                 <AlgorithmSelector
                   algorithm={algorithm}
@@ -78,7 +78,7 @@ export default function SimulatePage() {
                 <div className="flex gap-2">
                   <Button onClick={startSimulation} disabled={processes.length === 0}>
                     <Play className="mr-2 h-4 w-4" />
-                    Run Simulation
+                    Jalankan simulasi
                   </Button>
                   <Button variant="outline" onClick={resetSimulation}>
                     <RefreshCw className="mr-2 h-4 w-4" />
@@ -90,7 +90,7 @@ export default function SimulatePage() {
 
             <div className="lg:col-span-2">
               <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
-                <h2 className="mb-6 text-xl font-bold">Simulation Results</h2>
+                <h2 className="mb-6 text-xl font-bold">Hasil simulasi</h2>
 
                 <Tabs defaultValue="gantt" className="w-full">
                   <TabsList className="mb-4">
@@ -108,8 +108,9 @@ export default function SimulatePage() {
                     ) : (
                       <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
                         <div className="text-gray-500 dark:text-gray-400">
-                          <p className="mb-2 text-lg font-medium">No simulation data yet</p>
-                          <p className="text-sm">Add processes and run the simulation to see the Gantt chart</p>
+                          <p className="mb-2 text-lg font-medium">Belum ada data yang bisa dianalisis</p>
+                          <p className="text-sm">CPU-nya masih santai.
+                          Tambahkan proses, laluklik "Jalankan Simulasi" sipaya bisa bekerja!</p>
                         </div>
                       </div>
                     )}
@@ -121,8 +122,8 @@ export default function SimulatePage() {
                     ) : (
                       <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
                         <div className="text-gray-500 dark:text-gray-400">
-                          <p className="mb-2 text-lg font-medium">No metrics available</p>
-                          <p className="text-sm">Run the simulation to see performance metrics</p>
+                          <p className="mb-2 text-lg font-medium">Tidak ada metrik tersedia</p>
+                          <p className="text-sm">Jalankan simulasi untuk melihat metrik performa</p>
                         </div>
                       </div>
                     )}
@@ -136,8 +137,8 @@ export default function SimulatePage() {
                     ) : (
                       <div className="flex h-40 items-center justify-center rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center">
                         <div className="text-gray-500 dark:text-gray-400">
-                          <p className="mb-2 text-lg font-medium">No simulation available</p>
-                          <p className="text-sm">Run the simulation to see performance metrics</p>
+                          <p className="mb-2 text-lg font-medium">Tidak ada simulasi yang tersedia</p>
+                          <p className="text-sm">Jalankan simulasi untuk melihat metrik performa</p>
                         </div>
                       </div>
                     )}

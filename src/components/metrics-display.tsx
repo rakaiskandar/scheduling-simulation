@@ -12,19 +12,19 @@ export function MetricsDisplay({ metrics, processes }: MetricsDisplayProps) {
     <div className="space-y-6">
       <div className="grid gap-6 md:grid-cols-3">
         <div className="rounded-lg border bg-purple-50 dark:bg-purple-900/20 p-4 text-center">
-          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Average Waiting Time</h3>
+          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Rata rata waktu tunggu</h3>
           <p className="mt-2 text-2xl font-bold text-purple-700 dark:text-purple-300">
             {metrics.averageWaitingTime.toFixed(2)}
           </p>
         </div>
         <div className="rounded-lg border bg-purple-50 dark:bg-purple-900/20 p-4 text-center">
-          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Average Turnaround Time</h3>
+          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Rata-rata waktu penyelesaian </h3>
           <p className="mt-2 text-2xl font-bold text-purple-700 dark:text-purple-300">
             {metrics.averageTurnaroundTime.toFixed(2)}
           </p>
         </div>
         <div className="rounded-lg border bg-purple-50 dark:bg-purple-900/20 p-4 text-center">
-          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Average Response Time</h3>
+          <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Rata-rata waktu respon </h3>
           <p className="mt-2 text-2xl font-bold text-purple-700 dark:text-purple-300">
             {metrics.averageResponseTime.toFixed(2)}
           </p>
@@ -32,19 +32,19 @@ export function MetricsDisplay({ metrics, processes }: MetricsDisplayProps) {
       </div>
 
       <div>
-        <h3 className="mb-3 font-semibold">Process Details</h3>
+        <h3 className="mb-3 font-semibold">Detail proses</h3>
         <div className="overflow-x-auto">
           <table className="w-full min-w-full border-collapse">
             <thead>
               <tr className="border-b bg-gray-50 dark:bg-gray-800">
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Process</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Arrival</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Burst</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Start</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Finish</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Waiting</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Turnaround</th>
-                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Response</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Proses</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Kedatangan</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Eksekusi</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Mulai</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Selesai</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Menunggu</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Penyelesaian</th>
+                <th className="px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">Respons</th>
               </tr>
             </thead>
             <tbody>

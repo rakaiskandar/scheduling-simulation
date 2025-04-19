@@ -136,17 +136,17 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
           <div className="grid grid-cols-3 gap-4">
             {/* Waiting Area */}
             <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-              <h3 className="mb-2 text-center font-medium">Waiting</h3>
+              <h3 className="mb-2 text-center font-medium">Menunggu</h3>
               <div className="flex flex-wrap gap-2 justify-center">
                 {waitingProcesses.map((process) => (
                   <div key={`waiting-${process.id}`} className="flex flex-col items-center">
                     <div className={`text-2xl ${process.textColor}`}>{process.character.emoji}</div>
                     <span className="text-xs font-medium">{process.name}</span>
-                    <span className="text-xs">Arrives: {process.arrivalTime}</span>
+                    <span className="text-xs">Datang: {process.arrivalTime}</span>
                   </div>
                 ))}
                 {waitingProcesses.length === 0 && (
-                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">No waiting processes</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Tidak ada proses yang menunggu</div>
                 )}
               </div>
             </div>
@@ -172,7 +172,7 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
 
             {/* Ready Queue */}
             <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-              <h3 className="mb-2 text-center font-medium">Ready Queue</h3>
+              <h3 className="mb-2 text-center font-medium">Antrean yang siap</h3>
               <div className="flex flex-wrap gap-2 justify-center">
                 {readyQueueProcesses.map((process) => (
                   <div key={`ready-${process.id}`} className="flex flex-col items-center">
@@ -181,7 +181,7 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
                   </div>
                 ))}
                 {readyQueueProcesses.length === 0 && (
-                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Queue empty</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Antrean kosong</div>
                 )}
               </div>
             </div>
@@ -189,17 +189,17 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
 
           {/* Completed Processes */}
           <div className="mt-4 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-            <h3 className="mb-2 text-center font-medium">Completed</h3>
+            <h3 className="mb-2 text-center font-medium">Selesai</h3>
             <div className="flex flex-wrap gap-3 justify-center">
               {completedProcesses.map((process) => (
                 <div key={`completed-${process.id}`} className="flex flex-col items-center">
                   <div className={`text-2xl ${process.textColor}`}>{process.character.emoji}</div>
                   <span className="text-xs font-medium">{process.name}</span>
-                  <span className="text-xs">Finished: {process.finishTime}</span>
+                  <span className="text-xs">Selesai: {process.finishTime}</span>
                 </div>
               ))}
               {completedProcesses.length === 0 && (
-                <div className="text-sm text-gray-500 dark:text-gray-400 py-4">No completed processes</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Tidak ada proses yang selesai</div>
               )}
             </div>
           </div>
@@ -208,8 +208,8 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
         {/* Timeline */}
         <div className="w-full max-w-3xl">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm">Time: {currentTime} seconds</span>
-            <span className="text-sm">Speed: {speed}x</span>
+            <span className="text-sm">Waktu: {currentTime} detik</span>
+            <span className="text-sm">Kecepatan: {speed}x</span>
           </div>
           <div className="mb-4">
             <Slider

@@ -9,10 +9,10 @@ export function SimulationHeader() {
         <div className="flex items-center justify-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <ArrowLeft className="h-5 w-5" />
-            <span className="font-medium">Back to Home</span>
+            <span className="font-medium">Kembali ke beranda</span>
           </Link>
         </div>
-        <h1 className="text-xl font-bold">Simulator</h1>
+        <h1 className="text-xl font-bold">Simulasi</h1>
         <div className="w-32 flex justify-end">
           <ThemeToggle />
         </div>

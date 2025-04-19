@@ -9,7 +9,7 @@ interface ProcessTimelineProps {
 export function ProcessTimeline({ processes }: ProcessTimelineProps) {
   return (
     <div className="mt-8 overflow-x-auto">
-      <h3 className="mb-3 font-semibold">Process Timeline</h3>
+      <h3 className="mb-3 font-semibold">Urutan waktu</h3>
       <div className="space-y-3">
         {processes.map((process) => {
           const isSame = process.arrivalTime === process.startTime
@@ -32,7 +32,7 @@ export function ProcessTimeline({ processes }: ProcessTimelineProps) {
                       style={{ left: `${process.arrivalTime * 30}px` }}
                     >
                       <div className="absolute -top-6 -translate-x-1/2 text-xs text-blue-600">
-                        Arrived & Started: {process.arrivalTime}
+                        Datang & mulai: {process.arrivalTime}
                       </div>
                     </div>
                   )}
@@ -44,7 +44,7 @@ export function ProcessTimeline({ processes }: ProcessTimelineProps) {
                       style={{ left: `${process.arrivalTime * 30}px` }}
                     >
                       <div className="absolute -top-6 -translate-x-1/2 text-xs text-gray-600">
-                        Arrival: {process.arrivalTime}
+                        Datang: {process.arrivalTime}
                       </div>
                     </div>
                   )}
@@ -56,7 +56,7 @@ export function ProcessTimeline({ processes }: ProcessTimelineProps) {
                       style={{ left: `${process.startTime * 30}px` }}
                     >
                       <div className="absolute -top-6 -translate-x-1/2 text-xs text-green-600">
-                        Start: {process.startTime}
+                        Mulai: {process.startTime}
                       </div>
                     </div>
                   )}
@@ -68,7 +68,7 @@ export function ProcessTimeline({ processes }: ProcessTimelineProps) {
                       style={{ left: `${process.finishTime * 30}px` }}
                     >
                       <div className="absolute -top-6 -translate-x-1/2 text-xs text-red-600">
-                        Finish: {process.finishTime}
+                        Selesai: {process.finishTime}
                       </div>
                     </div>
                   )}
