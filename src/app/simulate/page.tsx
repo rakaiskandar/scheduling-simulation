@@ -62,7 +62,7 @@ export default function SimulatePage() {
       <main className="flex items-center justify-center py-8">
         <div className="container">
           <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-1">
               <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="mb-4 text-xl font-bold">Konfigurasi</h2>
 
@@ -88,7 +88,7 @@ export default function SimulatePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-2">
               <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="mb-6 text-xl font-bold">Hasil Simulasi</h2>
 
