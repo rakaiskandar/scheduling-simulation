@@ -14,6 +14,9 @@ export function SiteHeader() {
           <Link href="/" className="font-medium hover:text-purple-600 transition-all">
             Home
           </Link>
+          <Link href="/about-us" className="font-medium hover:text-purple-600 transition-all">
+            About Us
+          </Link>
           <Link href="/simulate" className="font-medium hover:text-purple-600 transition-all">
             Simulate
           </Link>

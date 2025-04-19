@@ -32,7 +32,7 @@ export default function Home() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="#"
+                  href="#about"
                   className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white/80 dark:bg-gray-800/80 dark:border-gray-700 px-6 py-3 font-medium text-gray-700 dark:text-gray-200 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 backdrop-blur-sm"
                 >
                   Learn More
@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20 flex items-center justify-center">
+        <section className="py-20 flex items-center justify-center" id="about">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">

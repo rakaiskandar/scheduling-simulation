@@ -86,8 +86,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
                   <Input
                     id={`arrival-${process.id}`}
                     type="number"
-                    min="0"
-                    value={process.arrivalTime}
+                    placeholder="AT"
                     onChange={(e) => updateProcess(process.id, "arrivalTime", Number.parseInt(e.target.value) || 0)}
                     className="mt-1"
                   />
@@ -99,8 +98,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
                   <Input
                     id={`burst-${process.id}`}
                     type="number"
-                    min="1"
-                    value={process.burstTime}
+                    placeholder="BT"
                     onChange={(e) => updateProcess(process.id, "burstTime", Number.parseInt(e.target.value) || 1)}
                     className="mt-1"
                   />
