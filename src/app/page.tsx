@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section className="py-20">
+        <section className="py-20 flex items-center justify-center">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <div className="inline-block rounded-lg bg-purple-100/80 dark:bg-purple-900/30 px-3 py-1 text-sm text-purple-800 dark:text-purple-300 backdrop-blur-sm">
@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="py-20 flex items-center justify-center">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-purple-50/50 dark:bg-purple-950/20 py-20 backdrop-blur-sm">
+        <section className="bg-purple-50/50 dark:bg-purple-950/20 py-20 backdrop-blur-sm flex items-center justify-center">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
