@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Play, Pause, SkipForward, RotateCcw } from "lucide-react"
+import Image from "next/image"
+import { PlayIcon, PauseIcon, SkipForwardIcon, RotateCcwIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import { getProcessTextColor, getProcessCharacter } from "@/lib/process-colors"
@@ -46,9 +47,9 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
 
       const deltaTime = timestamp - lastTimeRef.current
 
-      if (deltaTime > 1000 / speed) {
+      if (deltaTime > 1000 / (speed * 2)) {
         setCurrentTime((prevTime) => {
-          const newTime = prevTime + 1 // Changed from 0.5 to 1
+          const newTime = prevTime + 0.5
           if (newTime >= maxTime) {
             setIsPlaying(false)
             return maxTime
@@ -87,7 +88,7 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
   // Step forward
   const stepForward = () => {
     setCurrentTime((prevTime) => {
-      const newTime = prevTime + 1 // Changed from 0.5 to 1
+      const newTime = prevTime + 0.5
       return newTime > maxTime ? maxTime : newTime
     })
     setIsPlaying(false)
@@ -140,13 +141,21 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
               <div className="flex flex-wrap gap-2 justify-center">
                 {waitingProcesses.map((process) => (
                   <div key={`waiting-${process.id}`} className="flex flex-col items-center">
-                    <div className={`text-2xl ${process.textColor}`}>{process.character.emoji}</div>
+                    <div className={`${process.textColor} w-10 h-10 relative`}>
+                      <Image
+                        src={process.character.imagePath || "/placeholder.svg"}
+                        alt={process.character.name}
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
                     <span className="text-xs font-medium">{process.name}</span>
-                    <span className="text-xs">Datang: {process.arrivalTime}</span>
+                    <span className="text-xs">Arrives: {process.arrivalTime}</span>
                   </div>
                 ))}
                 {waitingProcesses.length === 0 && (
-                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Tidak ada proses yang menunggu</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4 text-center">Tidak ada proses yang menunggu.</div>
                 )}
               </div>
             </div>
@@ -157,8 +166,14 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
               <div className="flex flex-col items-center justify-center h-24 bg-gray-100 dark:bg-gray-800 rounded-md">
                 {currentRunningProcess ? (
                   <div className="flex flex-col items-center">
-                    <div className={`text-4xl animate-pulse ${currentProcessCharacter?.textColor}`}>
-                      {currentProcessCharacter?.character.emoji}
+                    <div className={`${currentProcessCharacter?.textColor} w-16 h-16 relative animate-pulse`}>
+                      <Image
+                        src={currentProcessCharacter?.character.imagePath || "/placeholder.svg"}
+                        alt={currentProcessCharacter?.character.name || "Process"}
+                        width={64}
+                        height={64}
+                        className="object-contain"
+                      />
                     </div>
                     <div className="mt-1 text-sm font-medium">
                       {processCharacters.find((p) => p.id === currentRunningProcess.processId)?.name}
@@ -172,16 +187,24 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
 
             {/* Ready Queue */}
             <div className="rounded-lg border border-gray-200 dark:border-gray-800 p-4">
-              <h3 className="mb-2 text-center font-medium">Antrean yang siap</h3>
+              <h3 className="mb-2 text-center font-medium">Antrean yang Siap</h3>
               <div className="flex flex-wrap gap-2 justify-center">
                 {readyQueueProcesses.map((process) => (
                   <div key={`ready-${process.id}`} className="flex flex-col items-center">
-                    <div className={`text-2xl ${process.textColor}`}>{process.character.emoji}</div>
+                    <div className={`${process.textColor} w-10 h-10 relative`}>
+                      <Image
+                        src={process.character.imagePath || "/placeholder.svg"}
+                        alt={process.character.name}
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
                     <span className="text-xs font-medium">{process.name}</span>
                   </div>
                 ))}
                 {readyQueueProcesses.length === 0 && (
-                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Antrean kosong</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Antrean Kosong</div>
                 )}
               </div>
             </div>
@@ -193,13 +216,21 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
             <div className="flex flex-wrap gap-3 justify-center">
               {completedProcesses.map((process) => (
                 <div key={`completed-${process.id}`} className="flex flex-col items-center">
-                  <div className={`text-2xl ${process.textColor}`}>{process.character.emoji}</div>
+                  <div className={`${process.textColor} w-10 h-10 relative`}>
+                    <Image
+                      src={process.character.imagePath || "/placeholder.svg"}
+                      alt={process.character.name}
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
+                  </div>
                   <span className="text-xs font-medium">{process.name}</span>
                   <span className="text-xs">Selesai: {process.finishTime}</span>
                 </div>
               ))}
               {completedProcesses.length === 0 && (
-                <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Tidak ada proses yang selesai</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 py-4">Tidak ada proses yang selesai.</div>
               )}
             </div>
           </div>
@@ -208,15 +239,15 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
         {/* Timeline */}
         <div className="w-full max-w-3xl">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm">Waktu: {currentTime} detik</span>
-            <span className="text-sm">Kecepatan: {speed}x</span>
+            <span className="text-sm">Time: {currentTime.toFixed(1)}</span>
+            <span className="text-sm">Speed: {speed}x</span>
           </div>
           <div className="mb-4">
             <Slider
               value={[currentTime]}
               min={0}
               max={maxTime}
-              step={1} // Changed from 0.5 to 1
+              step={0.5}
               onValueChange={(value) => {
                 setCurrentTime(value[0])
                 setIsPlaying(false)
@@ -225,24 +256,24 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
           </div>
           <div className="flex justify-center gap-2">
             <Button variant="outline" size="sm" onClick={resetAnimation}>
-              <RotateCcw className="h-4 w-4 mr-1" />
+              <RotateCcwIcon className="h-4 w-4 mr-1" />
               Reset
             </Button>
             <Button variant={isPlaying ? "secondary" : "default"} size="sm" onClick={togglePlay}>
               {isPlaying ? (
                 <>
-                  <Pause className="h-4 w-4 mr-1" />
+                  <PauseIcon className="h-4 w-4 mr-1" />
                   Pause
                 </>
               ) : (
                 <>
-                  <Play className="h-4 w-4 mr-1" />
+                  <PlayIcon className="h-4 w-4 mr-1" />
                   Play
                 </>
               )}
             </Button>
             <Button variant="outline" size="sm" onClick={stepForward} disabled={currentTime >= maxTime}>
-              <SkipForward className="h-4 w-4 mr-1" />
+              <SkipForwardIcon className="h-4 w-4 mr-1" />
               Step
             </Button>
             <div className="ml-4">
@@ -262,7 +293,7 @@ export function SimulationAnimated({ processes, ganttChart }: SimulationAnimated
       {/* Current time indicator on gantt chart */}
       <div className="mt-8">
         <h3 className="mb-3 font-semibold">Gantt Chart Progress</h3>
-        <div className="relative">
+        <div className="relative overflow-x-auto">
           <div className="flex">
             {ganttChart.map((entry, index) => {
               const process = processCharacters.find((p) => p.id === entry.processId)

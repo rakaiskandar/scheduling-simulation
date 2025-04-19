@@ -18,8 +18,7 @@ export default function AboutUsPage() {
                 Meet the Team
               </h1>
               <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                We're a passionate group of developers and computer science
-                enthusiasts dedicated to making complex scheduling algorithms
+                We're a passionate group of computer science education dedicated to making complex scheduling algorithms
                 easy to understand through interactive visualization.
               </p>
             </div>
@@ -41,8 +40,8 @@ export default function AboutUsPage() {
                   },
                   {
                     icon: <Instagram className="h-5 w-5" />,
-                    href: "#",
-                    label: "LinkedIn",
+                    href: "https://www.instagram.com/cikaalkautsar_",
+                    label: "Instagram",
                   },
                 ]}
               />
@@ -58,8 +57,8 @@ export default function AboutUsPage() {
                   },
                   {
                     icon: <Instagram className="h-5 w-5" />,
-                    href: "#",
-                    label: "LinkedIn",
+                    href: "https://www.instagram.com/zyy__ell",
+                    label: "Instagram",
                   },
                 ]}
               />
@@ -75,7 +74,7 @@ export default function AboutUsPage() {
                   },
                   {
                     icon: <Instagram className="h-5 w-5" />,
-                    href: "#",
+                    href: "https://www.instagram.com/rakaaaisk",
                     label: "Instagram",
                   },
                 ]}
@@ -92,7 +91,7 @@ export default function AboutUsPage() {
                   },
                   {
                     icon: <Instagram className="h-5 w-5" />,
-                    href: "#",
+                    href: "https://www.instagram.com/susanindiii",
                     label: "Instagram",
                   },
                 ]}

@@ -15,7 +15,7 @@ export function SiteHeader() {
             Beranda
           </Link>
           <Link href="/about-us" className="font-medium hover:text-purple-600 transition-all">
-            Tentang kami
+            Tentang Kami
           </Link>
           <Link href="/simulate" className="font-medium hover:text-purple-600 transition-all">
             Simulasi

@@ -57,14 +57,14 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
         <Label>Proses</Label>
         <Button size="sm" variant="outline" onClick={addProcess}>
           <Plus className="mr-1 h-4 w-4" />
-          Tambahkan proses
+          Tambahkan Proses
         </Button>
       </div>
 
       <div className="mt-4 space-y-4">
         {processes.length === 0 ? (
           <div className="rounded-md border border-dashed border-gray-300 dark:border-gray-700 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
-           Tidak ada proses yang ditambahkan. Klik &quot;tambahkan proses &quot; untuk memulai
+           Tidak ada proses yang ditambahkan. Klik &quot;Tambahkan Proses&quot; untuk memulai!
           </div>
         ) : (
           processes.map((process) => (
@@ -81,7 +81,7 @@ export function ProcessManager({ processes, setProcesses }: ProcessManagerProps)
               <div className="flex flex-row justify-between gap-3">
                 <div>
                   <Label htmlFor={`arrival-${process.id}`} className="text-xs">
-                    Waktu kedatangan
+                    Waktu Kedatangan
                   </Label>
                   <Input
                     id={`arrival-${process.id}`}

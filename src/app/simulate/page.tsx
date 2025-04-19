@@ -62,7 +62,7 @@ export default function SimulatePage() {
       <main className="flex items-center justify-center py-8">
         <div className="container">
           <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-3">
               <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="mb-4 text-xl font-bold">Konfigurasi</h2>
 
@@ -88,9 +88,9 @@ export default function SimulatePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <div className="rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
-                <h2 className="mb-6 text-xl font-bold">Hasil simulasi</h2>
+                <h2 className="mb-6 text-xl font-bold">Hasil Simulasi</h2>
 
                 <Tabs defaultValue="gantt" className="w-full">
                   <TabsList className="mb-4">
@@ -110,7 +110,7 @@ export default function SimulatePage() {
                         <div className="text-gray-500 dark:text-gray-400">
                           <p className="mb-2 text-lg font-medium">Belum ada data yang bisa dianalisis</p>
                           <p className="text-sm">CPU-nya masih santai.
-                          Tambahkan proses, laluklik "Jalankan Simulasi" sipaya bisa bekerja!</p>
+                          Tambahkan proses, lalu klik "Jalankan Simulasi" supaya bisa bekerja!</p>
                         </div>
                       </div>
                     )}

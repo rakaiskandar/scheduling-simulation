@@ -15,7 +15,7 @@ export function AlgorithmSelector({ algorithm, setAlgorithm, timeQuantum, setTim
   return (
     <div className="mb-6 space-y-6">
       <div>
-        <Label htmlFor="algorithm">Scheduling Algorithm</Label>
+        <Label htmlFor="algorithm">Algoritma Penjadwalan</Label>
         <Select value={algorithm} onValueChange={setAlgorithm}>
           <SelectTrigger id="algorithm" className="mt-1">
             <SelectValue placeholder="Select algorithm" />

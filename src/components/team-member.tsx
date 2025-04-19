@@ -26,6 +26,7 @@ export function TeamMember({ name, id, imageSrc, socialLinks }: TeamMemberProps)
             width={160}
             height={160}
             className="object-cover transition-transform duration-500 group-hover:scale-110"
+            priority
           />
         </div>
         <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{name}</h3>
